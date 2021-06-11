@@ -24,15 +24,23 @@ class App extends Component {
         <Header />
 
         <main>
-          <SmurfList/>
-          <AddForm/>
+          {
+            !!this.props.apiError.length ?
+              <h1>{this.props.apiError}</h1> :
+            <>
+              <SmurfList/>
+              <AddForm/>
+            </>
+          }
         </main>
       </div>
     );
   }
 }
 
-export default connect(undefined, { fetchSmurfs })(App);
+const stateToProps = ({apiError}) => ({apiError});
+
+export default connect(stateToProps, { fetchSmurfs })(App);
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
 //2. Call the fetchSmurfs action when the component first loads.
