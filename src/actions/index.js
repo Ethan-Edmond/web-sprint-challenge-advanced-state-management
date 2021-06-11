@@ -35,7 +35,7 @@ export const fetchSmurfs = () => {
     dispatch(fetchStart());
     smurfAPI.get('/')
       .then(res => {
-        dispatch(fetchSuccess(res));
+        dispatch(fetchSuccess(res.data));
       })
       .catch(err => {
         dispatch(fetchFail(err.toString()));

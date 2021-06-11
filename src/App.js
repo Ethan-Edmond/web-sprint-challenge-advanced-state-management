@@ -13,6 +13,8 @@ import "./App.css";
 // actions
 import { fetchSmurfs } from './actions';
 
+import axios from 'axios';
+
 class App extends Component {
   componentDidMount () {
     this.props.fetchSmurfs();
